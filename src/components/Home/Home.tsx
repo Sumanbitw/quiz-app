@@ -10,12 +10,10 @@ function Home() {
     const [ score, setScore ] = useState<number>(0)
     const [ clicked, setClicked ] = useState<boolean>(false)
     const value = UseQuiz()
-    
     function handleClick(answer: any) {
-        if(answer.isRight === true && currentQuestion <  quizData.questions.length - 1){
+        if(answer.isRight === true){
             console.log("correct")
             setScore(prevScore => prevScore + 1)
-            setCurrentQuestion(prevQuestion => prevQuestion + 1)
         } else {
             console.log("incorrect")
             setScore(prevScore => prevScore - 1)
@@ -43,7 +41,7 @@ function Home() {
                </div>
                <div className="home__answers">{quizData.questions[currentQuestion].answers.map(answer => (
                    <li className="answer__list">
-                       <button style={{ backgroundColor : clicked && answer.isRight === true ? "green" : "white" }} className="button" onClick={() => handleClick(answer)} disabled={clicked}>{answer.answer}</button>
+                       <button style={{ backgroundColor : clicked && answer.isRight ? "green" : "white" }} className="button" onClick={() => handleClick(answer)} disabled={clicked}>{answer.answer}</button>
                    </li>
                ))}
                </div>
