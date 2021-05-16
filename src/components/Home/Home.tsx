@@ -10,7 +10,7 @@ function Home() {
     const [ score, setScore ] = useState<number>(0)
     const [ clicked, setClicked ] = useState<boolean>(false)
     const value = UseQuiz()
-    console.log(quizData)
+    
     function handleClick(answer: any) {
         if(answer.isRight === true && currentQuestion <  quizData.questions.length - 1){
             console.log("correct")
