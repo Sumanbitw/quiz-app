@@ -1,38 +1,58 @@
 import React, { useState } from 'react'
 import "./home.css"
-import { Typography } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 import '@fontsource/roboto'
 import { UseQuiz } from '../../context/quixContext';
 import { quizData } from "../../data/quiz"
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import Icon from '@material-ui/core/Icon';
+import IconButton from "@material-ui/core/IconButton"
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 
-function Home() {
-    const [ currentQuestion, setCurrentQuestion ] = useState<number>(0)
-    const [ score, setScore ] = useState<number>(0)
-    const [ clicked, setClicked ] = useState<boolean>(false)
-    const value = UseQuiz()
-    function handleClick(answer: any) {
-        if(answer.isRight === true){
-            console.log("correct")
-            setScore(prevScore => prevScore + 1)
-        } else {
-            console.log("incorrect")
-            setScore(prevScore => prevScore - 1)
+const userStyles = makeStyles({
+        headers : {
+            color : "green",
+        },
+
+        buttons : {
+            color : "green",
+            padding : "0.5rem 2rem",
+            margin: "2rem",
+            backgroundColor : "white",
+            border : "1px solid green", 
         }
-        setClicked(true)
-    }
+    
+})
+function Home() {
+    const classes = userStyles()
+  
+    // const [ currentQuestion, setCurrentQuestion ] = useState<number>(0)
+    // const [ score, setScore ] = useState<number>(0)
+    // const [ clicked, setClicked ] = useState<boolean>(false)
+    // const value = UseQuiz()
+    // function handleClick(answer: any) {
+    //     if(answer.isRight === true){
+    //         console.log("correct")
+    //         setScore(prevScore => prevScore + 1)
+    //     } else {
+    //         console.log("incorrect")
+    //         setScore(prevScore => prevScore - 1)
+    //     }
+    //     setClicked(true)
+    // }
 
-    function handleNextQuestion(){
-        setClicked(false)
-        if(currentQuestion < quizData.questions.length - 1)
-    {
-        setCurrentQuestion(prevQuestion => prevQuestion + 1)
-    }
-    }
+    // function handleNextQuestion(){
+    //     setClicked(false)
+    //     if(currentQuestion < quizData.questions.length - 1)
+    // {
+    //     setCurrentQuestion(prevQuestion => prevQuestion + 1)
+    // }
+    // }
     return (
-        <div className="home">
-            <div className="home__container">
-            <div>
-            <Typography variant='h3' color="textSecondary">Sports Quiz 🤯</Typography>
+        // <div className="home">
+        //     <div className="home__container">
+        //     <div>
+            /* <Typography variant='h3' color="textSecondary">Sports Quiz 🤯</Typography>
             <p>Status : {value?.status}</p>
             <p>Score : {score}</p>
             <div className="home__wrapper">
@@ -48,6 +68,31 @@ function Home() {
                <button className="btn__next" onClick={handleNextQuestion} disabled={!clicked}>Next</button>
             </div>
             </div>
+        </div> */
+
+        <div className="home">
+            <Typography 
+                variant='h3' 
+                align='center'
+            >
+                Quiz
+            <Typography 
+                display='inline' 
+                variant='h3' 
+                className={classes.headers}
+            >
+                zing
+            </Typography> is a platform where you can test your knowledge in cricket. 
+            </Typography>
+
+            <Button
+                type='submit'
+                variant='outlined'
+                className={classes.buttons}
+                endIcon={<IconButton><ArrowForwardIcon style={{color:'green'}}/></IconButton>}
+            >
+                Explore 
+            </Button>
         </div>
     )
 }
