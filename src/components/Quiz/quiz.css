@@ -1,0 +1,9 @@
+.quiz{
+    position: relative;
+    top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+    gap: 1rem;
+}

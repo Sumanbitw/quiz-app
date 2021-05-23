@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Menu from "@material-ui/icons/Menu"
+import "./navbar.css"
 
 const userStyles = makeStyles ({
     headers : {
@@ -14,8 +15,8 @@ const userStyles = makeStyles ({
 function Navbar() {
     const classes = userStyles()
     return (
-        <div>
-            <AppBar className={classes.headers} position="fixed">
+        <div className="navbar">
+            <AppBar className={classes.headers} position="fixed" >
                 <Toolbar style={{display:"flex",justifyContent : "space-between"}}>
                     <IconButton>
                         <Menu />
