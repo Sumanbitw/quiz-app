@@ -1,22 +1,49 @@
-import { createContext, useContext, useReducer, useState } from "react"
+import { createContext, useContext, useReducer } from "react"
 import { Quiz } from "../data/quiz.types"
-import { quizData } from "../../src/data/quiz"
-
-type statusState = "starting" | "finished"
+// import { quizData } from "../data/quiz1"
+import { reducer } from "../../src/reducer/reducer"
+import { initialState } from "../../src/reducer/reducer" 
 
 type contextType = {
-    quiz : Quiz[],
-    setQuiz : (quiz : Quiz[]) => void,
-    status : statusState,
-    setStatus : (status : statusState) => void
+    state : InitialState,
+    dispatch : (action : Action) => void,
 } 
-const QuizContext = createContext<contextType | null>(null)
+export type InitialState = {
+    currentQuizQuestion : Quiz, 
+    attemptedQuestion : Quiz | null,
+    currentQuestion : number,
+    score: number,
+}
+
+export type Action = 
+    | {
+        type: "RESET";
+    }
+    | {
+        type : "SET__QUIZ";
+        payload : { quiz : Quiz }
+    }
+    | {
+        type : "INCREASE__QUESTION__NUMBER"
+    }
+    | {
+        type : "TOTAL__SCORE"
+    }
+    | {
+        type : "INCREMENT__SCORE";
+        payload ?: number
+    }
+    | {
+        type : "DECREMENT__SCORE";
+        payload ?: number
+    }
+
+const QuizContext = createContext<contextType>( {} as contextType )
+
 export const QuizProvider: React.FC = ({ children }) => {
-    const [quiz, setQuiz] = useState<Quiz[]>([])
-    const [ status, setStatus] = useState<statusState>("starting")
-    // const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, initialState)
     return (
-        <QuizContext.Provider value={{quiz,setQuiz,status, setStatus}}>
+        <QuizContext.Provider value={{ state, dispatch }}>
             {children}
         </QuizContext.Provider>
     )
