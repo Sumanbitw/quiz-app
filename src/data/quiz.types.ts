@@ -12,12 +12,13 @@ export type QuizType = {
 }
 export type QuizDetails = {
     totalQuestions : number,
-    difficulty : string,
+    difficulty ?: "Easy" | "Medium" | "Hard",
     totalPoints : number,
 }
 export type Quiz = {
     id : number,
     quizName : string,
+    category : string,
     quizDetails : QuizDetails, 
     questions : QuizType[],
 }
