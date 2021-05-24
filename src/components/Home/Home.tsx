@@ -2,27 +2,28 @@ import React from 'react'
 import "./home.css"
 import { Button, Typography } from '@material-ui/core'
 import '@fontsource/roboto'
-// import { UseQuiz } from '../../context/quixContext';
-// import { quizOne } from "../../data/quiz1"
 import { makeStyles } from "@material-ui/core/styles";
-// import Icon from '@material-ui/core/Icon';
 import IconButton from "@material-ui/core/IconButton"
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
 import { Link } from "react-router-dom"
+// import { ThemeProvider } from '../../context/themeContext';
 
 const userStyles = makeStyles({
         headers : {
-            color : "green",
+            color : "#2e7d32",
         },
 
         buttons : {
-            color : "green",
+            color : "white",
             padding : "0.5rem 2rem",
             margin: "2rem",
-            backgroundColor : "white",
-            border : "1px solid green", 
+            backgroundColor : "#2e7d32",
+            border : "1px solid #2e7d32",
+        }, 
+        
+        textWidth : {
+            width : "80%",
         }
-    
 })
 function Home() {
     const classes = userStyles()
@@ -32,6 +33,7 @@ function Home() {
             <Typography 
                 variant='h3' 
                 align='center'
+                className={classes.textWidth}
             >
                 Quiz
             <Typography 
@@ -43,12 +45,15 @@ function Home() {
             </Typography> is a platform where you can test your knowledge in cricket. 
             </Typography>
 
-            <Link to="/quiz">
+            <Link to="/quiz" style={{ textDecoration:"none" }}>
             <Button
                 type='submit'
                 variant='outlined'
                 className={classes.buttons}
-                endIcon={<IconButton><ArrowForwardIcon style={{color:'green'}}/></IconButton>}
+                endIcon={
+                <IconButton>
+                    <ArrowForwardIcon style={{ color:'white' }}/>
+                </IconButton>}
             >
                 Explore 
             </Button>
