@@ -27,7 +27,7 @@ function Score({question, isSelected } : any) {
     return (
         <div className="score">
             <div className="result">
-            <h1>Score : {score } / { category[0]?.quizDetails.totalPoints ? category[0]?.quizDetails.totalPoints : 0} </h1>
+            <h1>High Score : {score } / { category[0]?.quizDetails.totalPoints ? category[0]?.quizDetails.totalPoints : 0} </h1>
             <div>
                 <h3>Correct Attempt : {correctAttempt}</h3>
                 <h3>Incorrect Attempt : {inCorrectAttempt}</h3>
