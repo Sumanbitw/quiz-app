@@ -58,7 +58,7 @@ function Home() {
             is a platform where you can test your knowledge in cricket. 
             </Typography>
 
-            <Link to="/login" style={{ textDecoration:"none" }}>
+            <Link to="/quiz" style={{ textDecoration:"none" }}>
             <Button
                 type='submit'
                 variant='outlined'
