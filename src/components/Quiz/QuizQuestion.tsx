@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { useParams, useNavigate } from "react-router-dom"
 import { useEffect } from 'react'
 // import { quizzes } from '../../data/database'
@@ -12,9 +12,9 @@ import Button from '@material-ui/core/Button';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import "./quizQuestion.css"
 // import { QuestionType } from '../../data/quiz.types'
-import axios from 'axios'
-import { Quiz } from '../../data/quiz.types'
-import { displayPartsToString } from 'typescript';
+// import axios from 'axios'
+// import { Quiz } from '../../data/quiz.types'
+// import { displayPartsToString } from 'typescript';
 
 export type QuizQuestionType = {
     setShowQuestions : (flag : boolean) => void
@@ -60,8 +60,8 @@ export type QuizQuestionType = {
 function QuizQuestion() {
     const classes = useStyles();
     const { state : { currentQuestionNumber, currentQuiz, correctAttempt, inCorrectAttempt,response, category }, dispatch } = UseQuiz() 
-    const [ showQuestions, setShowQuestions ] = useState<boolean>(false)
-    const [qNum, setQNum] = useState(0)
+    // const [ showQuestions, setShowQuestions ] = useState<boolean>(false)
+    // const [qNum, setQNum] = useState(0)
     const navigate = useNavigate()
     const { id } = useParams()
 
