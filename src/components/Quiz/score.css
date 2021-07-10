@@ -1,0 +1,23 @@
+.score{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* position: relative; */
+    /* top:10rem; */
+    /* margin-top: 9.5rem; */
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    /* background-color: #263238; */
+}
+
+
+.result{
+    position: relative;
+    top: 15rem;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #263238;
+}
+

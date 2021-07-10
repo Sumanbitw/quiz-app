@@ -1,24 +1,21 @@
-export type QuizAnswers = {
-    answer : string,
-    isRight : boolean,
-}
-
-export type QuizType = {
-    id:number,
-    question : string,
-    correctAnswer : number,
-    wrongAnswer : number,
-    answers : QuizAnswers[],
-}
 export type QuizDetails = {
     totalQuestions : number,
-    difficulty ?: "Easy" | "Medium" | "Hard",
     totalPoints : number,
+    difficulty ?: "Easy" | "Medium" | "Hard",
+    totalTime : string,
 }
 export type Quiz = {
-    id : number,
+    _id : string,
+    correctOption : string,
+    categoryId : string,
+    question : string,
+    explanation : string,
+    incorrectOption : Array<string>
+}
+
+export type QuizCategory = {
+    _id : string,
     quizName : string,
-    category : string,
-    quizDetails : QuizDetails, 
-    questions : QuizType[],
+    imageURL : string,
+    quizDetails : QuizDetails
 }

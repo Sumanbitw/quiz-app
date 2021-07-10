@@ -4,12 +4,11 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { QuizProvider } from "./context/quixContext"
-// import { CustomThemeProvider } from './context/themeContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <QuizProvider>
-    <App />
+      <App />
     </QuizProvider>
   </React.StrictMode>,
   document.getElementById('root')
