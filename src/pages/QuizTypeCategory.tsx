@@ -38,11 +38,6 @@ function QuizTypeCategory({ categoryItem } : { categoryItem : QuizCategory}) {
         <div>
             <Card className={classes.root}>
                 <CardActionArea>
-                    {/* <CardMedia
-                    className={classes.media}
-                    src={quizImage1}
-                    title="image"
-                    /> */}
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                              {categoryItem.quizName}

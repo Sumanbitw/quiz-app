@@ -60,23 +60,11 @@ export type QuizQuestionType = {
 function QuizQuestion() {
     const classes = useStyles();
     const { state : { currentQuestionNumber, currentQuiz, correctAttempt, inCorrectAttempt,response, category }, dispatch } = UseQuiz() 
-    // const [ showQuestions, setShowQuestions ] = useState<boolean>(false)
-    // const [qNum, setQNum] = useState(0)
     const navigate = useNavigate()
     const { id } = useParams()
 
-    // const currentQuestions = currentQuiz?.question[currentQuestionNumber] as QuestionType
-
     console.log(currentQuiz[currentQuestionNumber], correctAttempt, inCorrectAttempt, response)
 
-
-    // const quiz = attemptedQuestion.filter(questionObj => questionObj.categoryId === id )
-    // console.log(quiz)
-
-    useEffect(() => {
-        dispatch({ type:"INITIALISE__CURRENT__QUIZ", payload: { quizId : id }})
-        return () => {}
-    },[dispatch, id])
 
     const optionHandler = (option : string, answer : string) => {
         dispatch({ type : "SELECT__ANSWER", payload : { option : option , answer : answer}})
@@ -93,26 +81,14 @@ function QuizQuestion() {
         navigate("/score")
     }
     const options = currentQuiz[currentQuestionNumber] && currentQuiz[currentQuestionNumber].incorrectOption.concat(currentQuiz[currentQuestionNumber].correctOption).sort(() => Math.random() - 0.5)
+
+    useEffect(() => {
+        dispatch({ type:"INITIALISE__CURRENT__QUIZ", payload: { quizId : id }})
+        return () => {}
+    },[])
+
     return (
         <div className="quiz__questions" style={{ backgroundColor: "#263238" }}>
-            {/* {currentQuiz && currentQuestions &&
-            !showQuestions ? 
-            ( <QuizInstruction setShowQuestions={setShowQuestions}/> 
-                ) : (
-                    <QuizQuestionContainer currentQuestions={currentQuestions}/>
-                    
-                )
-                } */}
-            {/* {currentQuiz?.map((item : Quiz) => (
-                {item}
-            ))} */}
-            {/* <div> */}
-                {/* {quiz?.question}
-                <button onClick={optionHandler}>
-                    {quiz?.correctOption}
-                </button>
-                {quiz?.incorrectOption.map(option => <button onClick={optionHandler}>{option}</button>)}
-            </div> */}
             {currentQuiz[currentQuestionNumber] && currentQuestionNumber  !== currentQuiz.length 
             ? (
             <Container maxWidth="sm">
@@ -127,13 +103,6 @@ function QuizQuestion() {
             </Container> 
             )
             : <Button variant="contained" onClick={handleScore}>Check Score</Button>
-            /* <div>{currentQuiz[currentQuestionNumber] && currentQuiz[currentQuestionNumber].question}</div>
-            <div>{currentQuiz[currentQuestionNumber] && JSON.stringify(options)}</div>
-            <button onClick={optionHandler}>increment</button> */
-
-            // {currentQuiz[currentQuestionNumber] && currentQuestionNumber  === currentQuiz.length  
-            // ? <Button variant="contained">Check Score</Button>
-            // : null
         }
         </div>
     )

@@ -22,9 +22,7 @@ export type InitialState = {
 }
 
 export type Action = 
-    // | {
-    //     type: "RESET";
-    // }
+    | { type: "RESET" }
     | { type : "SET__QUIZ"; payload : { quiz : Quiz[] }}
     | { type : "INCREASE__QUESTION__NUMBER" }
     | { type : "TOTAL__SCORE"; payload:number }

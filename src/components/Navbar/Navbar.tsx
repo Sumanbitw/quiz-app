@@ -6,6 +6,8 @@ import { createStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 
 
+
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -32,9 +34,11 @@ function Navbar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+          
           <Typography variant="h4" className={classes.title}>
             Quiz<span style={{color:"#2e7d32"}}>zing</span>
           </Typography>
+          
           <Typography color="inherit" className={classes.menuButton}>Login</Typography>
           <Typography color="inherit"className={classes.menuButton}>Leaderboard</Typography>
         </Toolbar>

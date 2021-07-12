@@ -13,7 +13,6 @@ export const initialState : InitialState = {
     response : [],
     correctAttempt : 0,
     isOptionClicked : true,
-    // isCurrentOptionCorrect : false,
     inCorrectAttempt : 0,
     user : [],
   
@@ -59,30 +58,12 @@ export const reducer = (state : InitialState ,action : Action) : typeof initialS
                 ...state,
                 score : state.score +  state.correctAttempt * action.payload - state.inCorrectAttempt * 1
             }
-        case "INCREMENT__SCORE" :
-            // return {
-            //     ...state,
-            //     correctAttempt : state.correctAttempt + 1,
-            //     score : state.score + action.payload.score
-            // }
-
-        case "DECREMENT__SCORE" :
-            // return {
-            //     ...state,
-            //     inCorrectAttempt : state.inCorrectAttempt + 1,
-            //     score : state.score - action.payload.score
-            // }
-
-        case "ENABLE__CLICK":
-            // return{
-            //     ...state,
-            //     isOptionClicked : false
-            // }
-    
-        // case "RESET":
-        //     return {
-        //         ...initialState
-        //     }
+        case "RESET" :
+            return{
+                ...state,
+                currentQuestionNumber : 0,
+                score : 0,    
+            }
         default :
         return state
     }
