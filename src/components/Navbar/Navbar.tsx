@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 function Navbar() {
     const classes = useStyles()
-    const navigate = useNavigate()
     return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -37,7 +36,7 @@ function Navbar() {
             <MenuIcon />
           </IconButton>
           
-          <Typography variant="h4" className={classes.title} onClick={() => navigate("/quiz")}>
+          <Typography variant="h4" className={classes.title}>
             Quiz<span style={{color:"#2e7d32"}}>zing</span>
           </Typography>
           
