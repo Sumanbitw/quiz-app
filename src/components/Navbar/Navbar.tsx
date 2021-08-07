@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import "./navbar.css"
 import { createStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useNavigate } from 'react-router';
 
 
 
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 function Navbar() {
     const classes = useStyles()
+    const navigate = useNavigate()
     return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -35,12 +37,12 @@ function Navbar() {
             <MenuIcon />
           </IconButton>
           
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant="h4" className={classes.title} onClick={() => navigate("/quiz")}>
             Quiz<span style={{color:"#2e7d32"}}>zing</span>
           </Typography>
           
-          <Typography color="inherit" className={classes.menuButton}>Login</Typography>
-          <Typography color="inherit"className={classes.menuButton}>Leaderboard</Typography>
+          {/* <Typography color="inherit" className={classes.menuButton}>Login</Typography>
+          <Typography color="inherit"className={classes.menuButton}>Leaderboard</Typography> */}
         </Toolbar>
       </AppBar>
     </div>
